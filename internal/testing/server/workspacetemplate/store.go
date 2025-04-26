@@ -19,16 +19,37 @@ type InMemoryWorkspaceTemplateStore struct {
 	workspaceTemplates map[string]*models.WorkspaceTemplate
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewInMemoryWorkspaceTemplateStore() stores.WorkspaceTemplateStore {
 	return &InMemoryWorkspaceTemplateStore{
 		workspaceTemplates: make(map[string]*models.WorkspaceTemplate),
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceTemplateStore) List(ctx context.Context, filter *stores.WorkspaceTemplateFilter) ([]*models.WorkspaceTemplate, error) {
 	return s.processFilters(filter)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceTemplateStore) Find(ctx context.Context, filter *stores.WorkspaceTemplateFilter) (*models.WorkspaceTemplate, error) {
 	workspaceTemplates, err := s.processFilters(filter)
 	if err != nil {
@@ -41,16 +62,37 @@ func (s *InMemoryWorkspaceTemplateStore) Find(ctx context.Context, filter *store
 	return workspaceTemplates[0], nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceTemplateStore) Save(ctx context.Context, workspaceTemplate *models.WorkspaceTemplate) error {
 	s.workspaceTemplates[workspaceTemplate.Name] = workspaceTemplate
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceTemplateStore) Delete(ctx context.Context, workspaceTemplate *models.WorkspaceTemplate) error {
 	delete(s.workspaceTemplates, workspaceTemplate.Name)
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceTemplateStore) processFilters(filter *stores.WorkspaceTemplateFilter) ([]*models.WorkspaceTemplate, error) {
 	var result []*models.WorkspaceTemplate
 	filteredWorkspaceTemplates := make(map[string]*models.WorkspaceTemplate)
