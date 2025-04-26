@@ -13,6 +13,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/build/devcontainer"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenVScodiumInsiders(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgkey *string) error {
 	path, err := GetCodiumInsidersBinaryPath()
 	if err != nil {
@@ -47,6 +54,13 @@ func OpenVScodiumInsiders(activeProfile config.Profile, workspaceId, repoName st
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.vscodium-server-insiders/*/bin/codium-server-insiders", "$HOME/.vscodium-server-insiders/data/Machine/settings.json", ".daytona-customizations-lock-codium-insiders")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetCodiumInsidersBinaryPath() (string, error) {
 	path, err := exec.LookPath("codium-insiders")
 	if err == nil {
