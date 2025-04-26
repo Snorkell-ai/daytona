@@ -10,11 +10,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// MergeEnvVars merges multiple environment variables maps into one
-// and resolves environment variables that are referenced in the values.
-// If an environment variable is not found, a warning is logged.
-// The order of the maps is important. Latter maps will override
-// the values of the previous ones.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func MergeEnvVars(envVars ...map[string]string) map[string]string {
 	vars := map[string]string{}
 
@@ -40,6 +42,13 @@ func MergeEnvVars(envVars ...map[string]string) map[string]string {
 	return vars
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetEnvVarsFromShell() map[string]string {
 	envMap := map[string]string{}
 
