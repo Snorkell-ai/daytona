@@ -23,6 +23,13 @@ type ApiErrorResponse struct {
 	Error string `json:"error"`
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func HandleErrorResponse(res *http.Response, requestErr error) error {
 	if res == nil {
 		return requestErr
@@ -65,6 +72,13 @@ func HandleErrorResponse(res *http.Response, requestErr error) error {
 	return errors.New(errResponse.Error)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func checkVersionsMismatch(res *http.Response) {
 	serverVersion := res.Header.Get(middlewares.SERVER_VERSION_HEADER)
 	if internal.Version != serverVersion {
