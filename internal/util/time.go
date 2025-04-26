@@ -10,6 +10,13 @@ import (
 
 var timeLayout = "2006-01-02T15:04:05.999999999Z07:00"
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func FormatTimestamp(input string) string {
 	t, err := time.Parse(timeLayout, input)
 	if err != nil {
@@ -41,6 +48,13 @@ func FormatTimestamp(input string) string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func FormatUptime(uptime int32) string {
 	duration := time.Duration(uptime) * time.Second
 

@@ -14,6 +14,13 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWebsocketConn(ctx context.Context, path string, serverUrl string, apiKey string, query *string) (*websocket.Conn, *http.Response, error) {
 	url, err := url.JoinPath(serverUrl, path)
 	if err != nil {
@@ -34,6 +41,13 @@ func GetWebsocketConn(ctx context.Context, path string, serverUrl string, apiKey
 	})
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getWebSocketUrl(apiUrl string) (string, error) {
 	hostRegex := regexp.MustCompile(`(https*)://(.*)`)
 
