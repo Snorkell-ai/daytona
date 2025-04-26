@@ -16,6 +16,13 @@ import (
 
 const requiredExtension = "jeanp413.open-remote-ssh"
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenVScodium(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgkey *string) error {
 	path, err := GetCodiumBinaryPath()
 	if err != nil {
@@ -50,6 +57,13 @@ func OpenVScodium(activeProfile config.Profile, workspaceId, repoName string, wo
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.vscodium-server/*/bin/codium-server", "$HOME/.vscodium-server/data/Machine/settings.json", ".daytona-customizations-lock-codium")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetCodiumBinaryPath() (string, error) {
 	path, err := exec.LookPath("codium")
 	if err == nil {
@@ -64,6 +78,13 @@ func GetCodiumBinaryPath() (string, error) {
 	return "", errors.New(redBold + errorMessage + reset)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func installExtension(binaryPath string, extensionName string) error {
 	// Check if the required extension is installed
 	output, err := exec.Command(binaryPath, "--list-extensions").Output()
