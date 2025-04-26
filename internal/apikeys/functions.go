@@ -10,11 +10,24 @@ import (
 	"github.com/google/uuid"
 )
 
-// returns the SHA-256 hash of a given key as a hexadecimal string.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func HashKey(key string) string {
 	return util.Hash(key)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GenerateRandomKey() string {
 	uuid := uuid.NewString()
 	return base64.RawStdEncoding.EncodeToString([]byte(uuid))
