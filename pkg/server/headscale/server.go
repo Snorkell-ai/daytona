@@ -26,6 +26,13 @@ type HeadscaleServerConfig struct {
 	Frps          *server.FRPSConfig
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewHeadscaleServer(config *HeadscaleServerConfig) *HeadscaleServer {
 	return &HeadscaleServer{
 		serverId:      config.ServerId,
@@ -49,10 +56,24 @@ type HeadscaleServer struct {
 	disconnectChan chan struct{}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *HeadscaleServer) Init() error {
 	return os.MkdirAll(s.configDir, 0700)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *HeadscaleServer) Start(errChan chan error) error {
 	// Check if port is already in use
 	_, err := net.Dial("tcp", fmt.Sprintf(":%d", s.headscalePort))
@@ -117,6 +138,13 @@ func (s *HeadscaleServer) Start(errChan chan error) error {
 	return err
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *HeadscaleServer) Stop() error {
 	go func() {
 		s.stopChan <- struct{}{}
@@ -125,6 +153,13 @@ func (s *HeadscaleServer) Stop() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *HeadscaleServer) Purge() error {
 	return os.RemoveAll(s.configDir)
 }
