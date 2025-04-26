@@ -15,6 +15,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ReadLog(ctx context.Context, logReader io.Reader, follow bool, c chan []byte, errChan chan error) {
 	reader := bufio.NewReader(logReader)
 
@@ -39,6 +46,13 @@ func ReadLog(ctx context.Context, logReader io.Reader, follow bool, c chan []byt
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ReadJSONLog(ctx context.Context, logReader io.Reader, follow bool, c chan interface{}, errChan chan error) {
 	reader := bufio.NewReader(logReader)
 	for {
@@ -72,6 +86,13 @@ func ReadJSONLog(ctx context.Context, logReader io.Reader, follow bool, c chan i
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ReadCompressedFile(filePath string) (io.Reader, error) {
 	zipFile, err := zip.OpenReader(filePath)
 	if err != nil {

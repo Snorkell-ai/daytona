@@ -35,6 +35,13 @@ var (
 	ApiBasePathTarget    ApiBasePath = "/log/target"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (r *remoteLoggerFactory) CreateLogger(id, label string, source LogSource) (Logger, error) {
 	conn, _, err := util.GetWebsocketConn(context.Background(), fmt.Sprintf("%s/%s/write", r.apiBasePath, id), r.apiUrl, r.apiKey, nil)
 	if err != nil {
@@ -52,10 +59,24 @@ func (r *remoteLoggerFactory) CreateLogger(id, label string, source LogSource) (
 	}, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (l *remoteLoggerFactory) CreateLogReader(id string) (io.Reader, error) {
 	return nil, errors.New("not implemented")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (l *remoteLoggerFactory) CreateLogWriter(id string) (io.WriteCloser, error) {
 	return nil, errors.New("not implemented")
 }
