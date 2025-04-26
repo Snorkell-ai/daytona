@@ -20,6 +20,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetConnection(profile *config.Profile) (*tsnet.Server, error) {
 	apiClient, err := apiclient_util.GetApiClient(profile)
 	if err != nil {
