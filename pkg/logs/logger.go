@@ -19,6 +19,13 @@ type logger struct {
 	skipEntryConstructor bool
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (w *logger) Write(p []byte) (n int, err error) {
 	if w.logFile == nil {
 		filePath := filepath.Join(w.logsDir, w.id, "log")
@@ -51,6 +58,13 @@ func (w *logger) Write(p []byte) (n int, err error) {
 	return len(p), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (w *logger) ConstructJsonLogEntry(p []byte) ([]byte, error) {
 	var entry LogEntry
 	entry.Msg = string(p)
@@ -66,6 +80,13 @@ func (w *logger) ConstructJsonLogEntry(p []byte) ([]byte, error) {
 	return append(b, []byte(LogDelimiter)...), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (w *logger) Close() error {
 	if w.logFile != nil {
 		err := w.logFile.Close()
@@ -75,6 +96,13 @@ func (w *logger) Close() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (w *logger) Cleanup() error {
 	workspaceLogsDir := filepath.Join(w.logsDir, w.id)
 

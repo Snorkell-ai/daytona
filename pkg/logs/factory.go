@@ -52,6 +52,13 @@ type LoggerFactoryConfig struct {
 	ApiBasePath *ApiBasePath
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewLoggerFactory(config LoggerFactoryConfig) ILoggerFactory {
 	if config.ApiUrl != nil && config.ApiKey != nil && config.ApiBasePath != nil {
 		return &remoteLoggerFactory{
@@ -69,6 +76,13 @@ func NewLoggerFactory(config LoggerFactoryConfig) ILoggerFactory {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (l *loggerFactory) CreateLogger(id, label string, source LogSource) (Logger, error) {
 	return &logger{
 		id:      id,
@@ -78,6 +92,13 @@ func (l *loggerFactory) CreateLogger(id, label string, source LogSource) (Logger
 	}, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (l *loggerFactory) CreateLogReader(id string) (io.Reader, error) {
 	filePath := filepath.Join(l.logsDir, id, "log")
 
@@ -89,6 +110,13 @@ func (l *loggerFactory) CreateLogReader(id string) (io.Reader, error) {
 	return os.OpenFile(filePath, os.O_RDONLY|os.O_CREATE, 0644)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (l *loggerFactory) CreateLogWriter(id string) (io.WriteCloser, error) {
 	return &logger{
 		id:                   id,

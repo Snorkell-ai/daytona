@@ -28,6 +28,13 @@ type LogFileConfig struct {
 	Compress   bool   `json:"compress" validate:"optional"`
 } // @name LogFileConfig
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetDefaultLogFileConfig(logFilePath string) *LogFileConfig {
 	logFileConfig := LogFileConfig{
 		Path:       logFilePath,
