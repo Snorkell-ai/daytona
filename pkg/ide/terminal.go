@@ -12,6 +12,13 @@ import (
 	"github.com/daytonaio/daytona/cmd/daytona/config"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenTerminalSsh(activeProfile config.Profile, resourceId string, gpgKey *string, sshOptions []string, args ...string) error {
 	if err := config.EnsureSshConfigEntryAdded(activeProfile.Id, resourceId, gpgKey); err != nil {
 		return err
@@ -34,7 +41,13 @@ func OpenTerminalSsh(activeProfile config.Profile, resourceId string, gpgKey *st
 	return sshCommand.Run()
 }
 
-// parseSshOptions validates and parses the SSH options.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func parseSshOptions(sshOptions []string) (map[string]string, error) {
 	parsedOptions := make(map[string]string)
 	for _, option := range sshOptions {
@@ -50,6 +63,13 @@ func parseSshOptions(sshOptions []string) (map[string]string, error) {
 	return parsedOptions, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func buildCommandArgs(resourceHostname string, parsedOptions map[string]string, args ...string) []string {
 	cmdArgs := []string{resourceHostname}
 	for key, value := range parsedOptions {
