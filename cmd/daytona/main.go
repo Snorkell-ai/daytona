@@ -18,6 +18,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func main() {
 	if common.AgentMode() {
 		err := agentmode.Execute()
@@ -33,6 +40,13 @@ func main() {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func init() {
 	logLevel := log.WarnLevel
 
