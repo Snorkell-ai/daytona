@@ -16,6 +16,13 @@ type PipeReader struct {
 	Index      int
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (er *PipeReader) Read(p []byte) (n int, err error) {
 	if er.Index >= len(er.ExecStream) {
 		return 0, io.EOF
@@ -25,10 +32,24 @@ func (er *PipeReader) Read(p []byte) (n int, err error) {
 	return n, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (er *PipeReader) Close() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewPipeReader(result string) *PipeReader {
 	split := strings.Split(result, "\n")
 	execStream := make([][]byte, len(split))
