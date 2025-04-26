@@ -21,6 +21,13 @@ type InMemoryTargetStore struct {
 	jobStore stores.JobStore
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewInMemoryTargetStore(jobStore stores.JobStore) stores.TargetStore {
 	return &InMemoryTargetStore{
 		targets:  make(map[string]*models.Target),
@@ -28,10 +35,24 @@ func NewInMemoryTargetStore(jobStore stores.JobStore) stores.TargetStore {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) List(ctx context.Context, filter *stores.TargetFilter) ([]*models.Target, error) {
 	return s.processFilters(filter)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) Find(ctx context.Context, filter *stores.TargetFilter) (*models.Target, error) {
 	t, err := s.processFilters(filter)
 	if err != nil {
@@ -45,6 +66,13 @@ func (s *InMemoryTargetStore) Find(ctx context.Context, filter *stores.TargetFil
 	return t[0], nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) Save(ctx context.Context, target *models.Target) error {
 	tg := *target
 	tg.EnvVars = nil
@@ -54,11 +82,25 @@ func (s *InMemoryTargetStore) Save(ctx context.Context, target *models.Target) e
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) Delete(ctx context.Context, target *models.Target) error {
 	delete(s.targets, target.Id)
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) processFilters(filter *stores.TargetFilter) ([]*models.Target, error) {
 	var result []*models.Target
 	filteredTargets := make(map[string]*models.Target)
@@ -98,6 +140,13 @@ func (s *InMemoryTargetStore) processFilters(filter *stores.TargetFilter) ([]*mo
 	return result, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryTargetStore) jobMap(ctx context.Context) (map[string]*models.Job, error) {
 	jobs, err := s.jobStore.List(ctx, &stores.JobFilter{
 		ResourceType: util.Pointer(models.ResourceTypeTarget),
