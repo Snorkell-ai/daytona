@@ -19,6 +19,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenVSCode(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgKey *string) error {
 	CheckAndAlertVSCodeInstalled()
 	err := installRemoteSSHExtension("code")
@@ -49,6 +56,13 @@ func OpenVSCode(activeProfile config.Profile, workspaceId, repoName string, work
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.vscode-server/*/bin/code-server", "$HOME/.vscode-server/data/Machine/settings.json", ".daytona-customizations-lock-vscode")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func setupVSCodeCustomizations(workspaceHostname string, workspaceProviderMetadata string, tool devcontainer.Tool, codeServerPath string, settingsPath string, lockFileName string) error {
 	var metadata map[string]interface{}
 	if err := json.Unmarshal([]byte(workspaceProviderMetadata), &metadata); err != nil {
@@ -143,6 +157,13 @@ func setupVSCodeCustomizations(workspaceHostname string, workspaceProviderMetada
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func setupVSCodeSettings(workspaceHostname string, customizations *devcontainer.Customizations, settingsPath string) error {
 	if customizations == nil {
 		return nil
@@ -184,6 +205,13 @@ func setupVSCodeSettings(workspaceHostname string, customizations *devcontainer.
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func CheckAndAlertVSCodeInstalled() {
 	if err := isVSCodeInstalled(); err != nil {
 		redBold := "\033[1;31m" // ANSI escape code for red and bold
@@ -201,11 +229,25 @@ func CheckAndAlertVSCodeInstalled() {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func isVSCodeInstalled() error {
 	_, err := exec.LookPath("code")
 	return err
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func installRemoteSSHExtension(binaryPath string) error {
 	output, err := exec.Command(binaryPath, "--list-extensions").Output()
 	if err != nil {

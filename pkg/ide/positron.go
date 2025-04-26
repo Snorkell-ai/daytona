@@ -15,6 +15,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/views"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenPositron(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgkey *string) error {
 	path, err := GetPositronBinaryPath()
 	if err != nil {
@@ -46,6 +53,13 @@ func OpenPositron(activeProfile config.Profile, workspaceId, repoName string, wo
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.positron-server/*/bin/positron-server", "$HOME/.positron-server/data/Machine/settings.json", ".daytona-customizations-lock-positron")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetPositronBinaryPath() (string, error) {
 	path, err := exec.LookPath("positron")
 	if err == nil {
@@ -60,6 +74,13 @@ func GetPositronBinaryPath() (string, error) {
 	return "", errors.New(redBold + errorMessage + reset)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func printPositronDisclaimer() {
 	views.RenderTip(`
 Note: Positron does not currently support Linux ARM64 builds, including remote environments and SSH sessions.

@@ -25,7 +25,13 @@ import (
 
 const startJupyterCommand = "notebook --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 
-// OpenJupyterIDE manages the installation and startup of a Jupyter IDE on a remote target.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenJupyterIDE(activeProfile config.Profile, workspaceId, repoName, workspaceProviderMetadata string, yesFlag bool, gpgKey *string) error {
 	// Ensure SSH config entry is added
 	err := config.EnsureSshConfigEntryAdded(activeProfile.Id, workspaceId, gpgKey)
@@ -58,7 +64,13 @@ func OpenJupyterIDE(activeProfile config.Profile, workspaceId, repoName, workspa
 	return nil
 }
 
-// ensurePythonInstalled checks if Python is installed and installs it if the user agrees.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ensurePythonInstalled(hostname string, yesFlag bool) error {
 	views.RenderInfoMessageBold("Checking Python installation...")
 
@@ -93,6 +105,13 @@ func ensurePythonInstalled(hostname string, yesFlag bool) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func installPython(hostname string) error {
 	packageManager, err := detectPackageManager(hostname)
 	if err != nil {
@@ -101,7 +120,13 @@ func installPython(hostname string) error {
 	return installPythonWithPackageManager(hostname, packageManager)
 }
 
-// ensurePipInstalled checks if pip is installed and installs it if necessary
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ensurePipInstalled(hostname string, yesFlag bool) error {
 	views.RenderInfoMessageBold("Checking pip installation...")
 
@@ -136,6 +161,13 @@ func ensurePipInstalled(hostname string, yesFlag bool) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func installPip(hostname string) error {
 	// Check if we're on a Debian-based system
 	if err := runRemoteCommand(hostname, "command -v apt-get"); err == nil {
@@ -155,7 +187,13 @@ func installPip(hostname string) error {
 	return nil
 }
 
-// detectPackageManager detects the package manager on the remote host.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func detectPackageManager(hostname string) (string, error) {
 	views.RenderInfoMessageBold("Detecting package manager...")
 	commands := map[string]string{
@@ -171,7 +209,13 @@ func detectPackageManager(hostname string) (string, error) {
 	return "", errors.New("no supported package manager found")
 }
 
-// installPythonWithPackageManager installs Python using the detected package manager.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func installPythonWithPackageManager(hostname, manager string) error {
 	views.RenderInfoMessageBold(fmt.Sprintf("Installing Python3 using %s...", manager))
 	var installCmd string
@@ -188,7 +232,13 @@ func installPythonWithPackageManager(hostname, manager string) error {
 	return runRemoteCommand(hostname, installCmd)
 }
 
-// ensureJupyterInstalled checks if Jupyter Notebook is installed and installs it if necessary
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ensureJupyterInstalled(hostname string) error {
 	views.RenderInfoMessageBold("Checking Jupyter Notebook installation...")
 
@@ -215,7 +265,13 @@ func ensureJupyterInstalled(hostname string) error {
 	return runRemoteCommand(hostname, installCmd)
 }
 
-// startJupyterServer starts the Jupyter Notebook server on the remote target.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func startJupyterServer(hostname string, activeProfile config.Profile, workspaceId, repoName string, gpgKey *string) error {
 	workspaceDir, err := util.GetWorkspaceDir(activeProfile, workspaceId, repoName, gpgKey)
 	if err != nil {
@@ -261,7 +317,13 @@ func startJupyterServer(hostname string, activeProfile config.Profile, workspace
 	}
 }
 
-// runRemoteCommand runs a command on the remote host and handles output.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func runRemoteCommand(hostname, command string) error {
 	cmd := exec.Command("ssh", hostname, command)
 	cmd.Stdout = os.Stdout
@@ -269,7 +331,13 @@ func runRemoteCommand(hostname, command string) error {
 	return cmd.Run()
 }
 
-// waitForPort waits until the specified port is ready.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func waitForPort(port uint16) {
 	for {
 		if ports.IsPortReady(port) {
