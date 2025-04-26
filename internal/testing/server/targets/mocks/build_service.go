@@ -16,35 +16,84 @@ type MockBuildService struct {
 	mock.Mock
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewMockBuildService() *MockBuildService {
 	return &MockBuildService{}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) Create(createBuildDto services.CreateBuildDTO) (string, error) {
 	args := m.Called(createBuildDto)
 	return args.String(0), args.Error(1)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) Find(filter *services.BuildFilter) (*services.BuildDTO, error) {
 	args := m.Called(filter)
 	return args.Get(0).(*services.BuildDTO), args.Error(1)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) List(filter *services.BuildFilter) ([]*services.BuildDTO, error) {
 	args := m.Called(filter)
 	return args.Get(0).([]*services.BuildDTO), args.Error(1)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) Delete(filter *services.BuildFilter, force bool) []error {
 	args := m.Called(filter, force)
 	return args.Get(0).([]error)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) HandleSuccessfulRemoval(id string) error {
 	args := m.Called(id)
 	return args.Get(0).(error)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (m *MockBuildService) GetBuildLogReader(buildId string) (io.Reader, error) {
 	args := m.Called(buildId)
 	return args.Get(0).(io.Reader), args.Error(1)
