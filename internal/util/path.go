@@ -11,6 +11,13 @@ import (
 	"github.com/daytonaio/daytona/cmd/daytona/config"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetHomeDir(activeProfile config.Profile, workspaceId string, gpgKey *string) (string, error) {
 	err := config.EnsureSshConfigEntryAdded(activeProfile.Id, workspaceId, gpgKey)
 	if err != nil {
@@ -27,6 +34,13 @@ func GetHomeDir(activeProfile config.Profile, workspaceId string, gpgKey *string
 	return strings.TrimRight(string(homeDir), "\n"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWorkspaceDir(activeProfile config.Profile, workspaceId, repoName string, gpgKey *string) (string, error) {
 	err := config.EnsureSshConfigEntryAdded(activeProfile.Id, workspaceId, gpgKey)
 	if err != nil {
