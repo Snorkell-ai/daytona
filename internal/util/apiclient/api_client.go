@@ -21,6 +21,13 @@ const CLIENT_VERSION_HEADER = "X-Client-Version"
 
 var apiClient *apiclient.APIClient
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetApiClient(profile *config.Profile) (*apiclient.APIClient, error) {
 	if apiClient != nil {
 		return apiClient, nil
@@ -89,6 +96,13 @@ func GetApiClient(profile *config.Profile) (*apiclient.APIClient, error) {
 	return apiClient, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetRunnerApiClient(apiUrl, apiKey, clientId string, telemetryEnabled bool) (*apiclient.APIClient, error) {
 	clientConfig := apiclient.NewConfiguration()
 	clientConfig.Servers = apiclient.ServerConfigurations{
@@ -116,6 +130,13 @@ func GetRunnerApiClient(apiUrl, apiKey, clientId string, telemetryEnabled bool) 
 	return apiClient, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetAgentApiClient(apiUrl, apiKey, clientId string, telemetryEnabled bool) (*apiclient.APIClient, error) {
 	clientConfig := apiclient.NewConfiguration()
 	clientConfig.Servers = apiclient.ServerConfigurations{
@@ -143,6 +164,13 @@ func GetAgentApiClient(apiUrl, apiKey, clientId string, telemetryEnabled bool) (
 	return apiClient, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetTarget(targetNameOrId string) (*apiclient.TargetDTO, int, error) {
 	ctx := context.Background()
 
@@ -159,6 +187,13 @@ func GetTarget(targetNameOrId string) (*apiclient.TargetDTO, int, error) {
 	return target, res.StatusCode, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWorkspace(workspaceNameOrId string) (*apiclient.WorkspaceDTO, int, error) {
 	ctx := context.Background()
 
