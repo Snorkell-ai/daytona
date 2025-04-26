@@ -16,6 +16,13 @@ type Endpoint struct {
 	unixSocket string
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (e *Endpoint) String() string {
 	if e.unixSocket != "" {
 		return e.unixSocket
@@ -23,6 +30,13 @@ func (e *Endpoint) String() string {
 	return fmt.Sprintf("%s:%d", e.host, e.port)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (e *Endpoint) Type() string {
 	if e.unixSocket != "" {
 		return endpointTypeUnixSocket
@@ -30,6 +44,13 @@ func (e *Endpoint) Type() string {
 	return endpointTypeTCP
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewTCPEndpoint(host string, port int) *Endpoint {
 	return &Endpoint{
 		host: host,
@@ -37,6 +58,13 @@ func NewTCPEndpoint(host string, port int) *Endpoint {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewUnixEndpoint(socket string) *Endpoint {
 	return &Endpoint{
 		unixSocket: socket,

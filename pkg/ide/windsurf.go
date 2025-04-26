@@ -13,6 +13,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/build/devcontainer"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenWindsurf(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgkey *string) error {
 	path, err := GetWindsurfBinaryPath()
 	if err != nil {
@@ -42,6 +49,13 @@ func OpenWindsurf(activeProfile config.Profile, workspaceId, repoName string, wo
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.windsurf-server/*/bin/windsurf-server", "$HOME/.windsurf-server/data/Machine/settings.json", ".daytona-customizations-lock-windsurf")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWindsurfBinaryPath() (string, error) {
 	path, err := exec.LookPath("windsurf")
 	if err == nil {
