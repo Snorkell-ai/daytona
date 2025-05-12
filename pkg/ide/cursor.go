@@ -14,6 +14,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/build/devcontainer"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenCursor(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgKey *string) error {
 	path, err := GetCursorBinaryPath()
 	if err != nil {
@@ -43,6 +50,13 @@ func OpenCursor(activeProfile config.Profile, workspaceId, repoName string, work
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.cursor-server/*/bin/cursor-server", "$HOME/.cursor-server/data/Machine/settings.json", ".daytona-customizations-lock-cursor")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetCursorBinaryPath() (string, error) {
 	path, err := exec.LookPath("cursor")
 	if err == nil {

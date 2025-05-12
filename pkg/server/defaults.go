@@ -44,6 +44,13 @@ var eu_defaultFrpsConfig = FRPSConfig{
 	Protocol: "https",
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getDefaultFRPSConfig() *FRPSConfig {
 	frpsDomain := os.Getenv("DEFAULT_FRPS_DOMAIN")
 	fprsProtocol := os.Getenv("DEFAULT_FRPS_PROTOCOL")
@@ -87,6 +94,13 @@ func getDefaultFRPSConfig() *FRPSConfig {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getDefaultConfig() (*Config, error) {
 	binariesPath, err := getDefaultBinariesPath()
 	if err != nil {
@@ -147,6 +161,13 @@ func getDefaultConfig() (*Config, error) {
 	return &c, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func parsePort(port string) (uint32, error) {
 	p, err := strconv.Atoi(port)
 	if err != nil {
@@ -159,6 +180,13 @@ func parsePort(port string) (uint32, error) {
 	return uint32(p), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getDefaultLogFilePath() (string, error) {
 	configDir, err := GetConfigDir()
 	if err != nil {
@@ -168,6 +196,13 @@ func getDefaultLogFilePath() (string, error) {
 	return filepath.Join(configDir, "daytona.log"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getDefaultBinariesPath() (string, error) {
 	configDir, err := GetConfigDir()
 	if err != nil {

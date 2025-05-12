@@ -18,12 +18,26 @@ type InMemoryWorkspaceMetadataStore struct {
 	workspaceMetadataEntries map[string]*models.WorkspaceMetadata
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewInMemoryWorkspaceMetadataStore() stores.WorkspaceMetadataStore {
 	return &InMemoryWorkspaceMetadataStore{
 		workspaceMetadataEntries: make(map[string]*models.WorkspaceMetadata),
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceMetadataStore) Find(ctx context.Context, workspaceId string) (*models.WorkspaceMetadata, error) {
 	if _, ok := s.workspaceMetadataEntries[workspaceId]; !ok {
 		return nil, stores.ErrWorkspaceMetadataNotFound
@@ -32,11 +46,25 @@ func (s *InMemoryWorkspaceMetadataStore) Find(ctx context.Context, workspaceId s
 	return s.workspaceMetadataEntries[workspaceId], nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceMetadataStore) Save(ctx context.Context, workspaceMetadata *models.WorkspaceMetadata) error {
 	s.workspaceMetadataEntries[workspaceMetadata.WorkspaceId] = workspaceMetadata
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryWorkspaceMetadataStore) Delete(ctx context.Context, workspaceMetadata *models.WorkspaceMetadata) error {
 	delete(s.workspaceMetadataEntries, workspaceMetadata.WorkspaceId)
 	return nil

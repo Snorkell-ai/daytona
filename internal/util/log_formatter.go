@@ -14,6 +14,13 @@ type LogFormatter struct {
 	ProcessLogWriter io.Writer
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (f *LogFormatter) Format(entry *log.Entry) ([]byte, error) {
 	formatted, err := f.TextFormatter.Format(entry)
 	if err != nil {

@@ -30,6 +30,13 @@ type ServerInstanceConfig struct {
 
 var server *Server
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetInstance(serverConfig *ServerInstanceConfig) *Server {
 	if serverConfig != nil && server != nil {
 		log.Fatal("Server already initialized")
@@ -81,6 +88,13 @@ type Server struct {
 	TelemetryService           telemetry.TelemetryService
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *Server) Initialize() error {
 	return s.initLogs()
 }

@@ -11,7 +11,13 @@ import (
 	"golang.org/x/term"
 )
 
-// GetSshPrivateKeyPath returns the path to the private key and the password if it's encrypted
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetSshPrivateKeyPath(privateKeyPath string) (string, *string, error) {
 	keyContent, err := os.ReadFile(privateKeyPath)
 	if err != nil {

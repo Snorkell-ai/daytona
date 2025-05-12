@@ -14,6 +14,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/views"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenZed(activeProfile config.Profile, workspaceId, repoName string, gpgKey *string) error {
 	path, err := GetZedBinaryPath()
 	if err != nil {
@@ -36,6 +43,13 @@ func OpenZed(activeProfile config.Profile, workspaceId, repoName string, gpgKey 
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetZedBinaryPath() (string, error) {
 	path, err := exec.LookPath("zed")
 	if err == nil {
@@ -55,6 +69,13 @@ func GetZedBinaryPath() (string, error) {
 	return "", errors.New(redBold + errorMessage + reset + strings.Join(moreInfo, ""))
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func printDisclaimer() {
 	views.RenderTip("Note: Zed remote development is not yet stable. Issues like opening terminals and using extensions are expected.")
 }

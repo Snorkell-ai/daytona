@@ -11,6 +11,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func TestGetDaytonaScript(t *testing.T) {
 	baseUrl := "http://localhost:8080/daytona"
 	expectedString := "http://localhost:8080/daytona"

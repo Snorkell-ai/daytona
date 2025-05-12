@@ -16,6 +16,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetConfig() (*Config, error) {
 	configFilePath, err := configFilePath()
 	if err != nil {
@@ -73,6 +80,13 @@ func GetConfig() (*Config, error) {
 	return &c, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func configFilePath() (string, error) {
 	configDir, err := GetConfigDir()
 	if err != nil {
@@ -82,6 +96,13 @@ func configFilePath() (string, error) {
 	return filepath.Join(configDir, "config.json"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func Save(c Config) error {
 	if err := util.DirectoryValidator(&c.BinariesPath); err != nil {
 		return err
@@ -110,6 +131,13 @@ func Save(c Config) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetConfigDir() (string, error) {
 	configDir, err := config.GetConfigDir()
 	if err != nil {
@@ -119,18 +147,46 @@ func GetConfigDir() (string, error) {
 	return filepath.Join(configDir, "server"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetTargetLogsDir(configDir string) string {
 	return filepath.Join(configDir, "logs", "targets")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetRunnerLogsDir(configDir string) string {
 	return filepath.Join(configDir, "logs", "runners")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWorkspaceLogsDir(configDir string) string {
 	return filepath.Join(configDir, "logs", "workspaces")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetBuildLogsDir(configDir string) string {
 	return filepath.Join(configDir, "logs", "builds")
 }

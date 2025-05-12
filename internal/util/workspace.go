@@ -10,6 +10,13 @@ import (
 	"strings"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetValidatedName(input string) (string, error) {
 	input = strings.ReplaceAll(input, " ", "-")
 
@@ -28,6 +35,13 @@ func GetValidatedName(input string) (string, error) {
 	return input, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetValidatedUrl(input string) (string, error) {
 	// Check if the input starts with a scheme (e.g., http:// or https://)
 	if !strings.HasPrefix(input, "http://") && !strings.HasPrefix(input, "https://") {
@@ -44,6 +58,13 @@ func GetValidatedUrl(input string) (string, error) {
 	return parsedURL.String(), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetRepositorySlugFromUrl(url string, specifyGitProviders bool) string {
 	if url == "" {
 		return "/"
@@ -62,6 +83,13 @@ func GetRepositorySlugFromUrl(url string, specifyGitProviders bool) string {
 	return parts[len(parts)-2] + "/" + parts[len(parts)-1]
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func CleanUpRepositoryUrl(url string) string {
 	url = strings.ToLower(url)
 	return strings.TrimSuffix(url, "/")

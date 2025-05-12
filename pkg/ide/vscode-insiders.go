@@ -13,6 +13,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/build/devcontainer"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenVSCodeInsiders(activeProfile config.Profile, workspaceId, repoName string, workspaceProviderMetadata string, gpgKey *string) error {
 	path, err := GetVSCodeInsidersBinaryPath()
 	if err != nil {
@@ -46,6 +53,13 @@ func OpenVSCodeInsiders(activeProfile config.Profile, workspaceId, repoName stri
 	return setupVSCodeCustomizations(workspaceHostname, workspaceProviderMetadata, devcontainer.Vscode, "*/.vscode-server-insiders/*/bin/code-server-insiders", "$HOME/.vscode-server-insiders/data/Machine/settings.json", ".daytona-customizations-lock-vscode-insiders")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetVSCodeInsidersBinaryPath() (string, error) {
 	path, err := exec.LookPath("code-insiders")
 	if err == nil {

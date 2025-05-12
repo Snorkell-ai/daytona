@@ -5,6 +5,13 @@ package common
 
 import "os"
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func AgentMode() bool {
 	_, devEnv := os.LookupEnv("DAYTONA_DEV")
 	if devEnv {

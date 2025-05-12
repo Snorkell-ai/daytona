@@ -23,6 +23,13 @@ import (
 	"github.com/pkg/browser"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func OpenJetbrainsIDE(activeProfile config.Profile, ide, workspaceId, repoName string, gpgKey *string) error {
 	err := IsJetBrainsGatewayInstalled()
 	if err != nil {
@@ -79,6 +86,13 @@ func OpenJetbrainsIDE(activeProfile config.Profile, ide, workspaceId, repoName s
 	return browser.OpenURL(gatewayUrl)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func downloadJetbrainsIDE(workspaceHostname, downloadUrl, downloadPath string) error {
 	if isAlreadyDownloaded(workspaceHostname, downloadPath) {
 		views.RenderInfoMessage("JetBrains IDE already downloaded. Opening...")
@@ -101,12 +115,26 @@ func downloadJetbrainsIDE(workspaceHostname, downloadUrl, downloadPath string) e
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func isAlreadyDownloaded(workspaceHostname, downloadPath string) bool {
 	statCmd := exec.Command("ssh", workspaceHostname, fmt.Sprintf("stat %s", downloadPath))
 	err := statCmd.Run()
 	return err == nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getJetbrainsVersion(productCode string) (string, error) {
 	jetbrainsDataServicesUrl := fmt.Sprintf("https://data.services.jetbrains.com/products/releases?code=%s&type=release&latest=true&build=", productCode)
 	res, err := http.Get(jetbrainsDataServicesUrl)
@@ -134,6 +162,13 @@ func getJetbrainsVersion(productCode string) (string, error) {
 	return "", fmt.Errorf("jetbrains: no version found for %s", productCode)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func IsJetBrainsGatewayInstalled() error {
 	_, err := exec.LookPath("gateway")
 	if err != nil {

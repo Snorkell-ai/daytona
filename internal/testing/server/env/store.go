@@ -18,12 +18,26 @@ type InMemoryEnvironmentVariableStore struct {
 	envVars map[string]*models.EnvironmentVariable
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewInMemoryEnvironmentVariableStore() stores.EnvironmentVariableStore {
 	return &InMemoryEnvironmentVariableStore{
 		envVars: make(map[string]*models.EnvironmentVariable),
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryEnvironmentVariableStore) List(ctx context.Context) ([]*models.EnvironmentVariable, error) {
 	envVars := []*models.EnvironmentVariable{}
 	for _, envVar := range s.envVars {
@@ -33,11 +47,25 @@ func (s *InMemoryEnvironmentVariableStore) List(ctx context.Context) ([]*models.
 	return envVars, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryEnvironmentVariableStore) Save(ctx context.Context, environmentVariable *models.EnvironmentVariable) error {
 	s.envVars[environmentVariable.Key] = environmentVariable
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (s *InMemoryEnvironmentVariableStore) Delete(ctx context.Context, key string) error {
 	_, ok := s.envVars[key]
 	if !ok {

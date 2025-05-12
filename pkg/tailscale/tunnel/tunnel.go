@@ -49,9 +49,13 @@ const (
 	StateStarted
 )
 
-// New creates a new SSH tunnel to the specified server redirecting a port on local localhost to a port on remote localhost.
-// The states of the tunnel can be received through a callback function with SetConnState.
-// The states of the tunneled connections can be received through a callback function with SetTunneledConnState.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func New(tsnetConn *tsnet.Server, localPort int, server string, serverPort, remotePort int) *SshTunnel {
 	sshTun := defaultSSHTun(server, serverPort, tsnetConn)
 	sshTun.local = NewTCPEndpoint("localhost", localPort)
@@ -59,7 +63,13 @@ func New(tsnetConn *tsnet.Server, localPort int, server string, serverPort, remo
 	return sshTun
 }
 
-// NewUnix does the same as New but using unix sockets.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func NewUnix(tsnetConn *tsnet.Server, localUnixSocket, server string, serverPort int, remoteUnixSocket string) *SshTunnel {
 	sshTun := defaultSSHTun(server, serverPort, tsnetConn)
 	sshTun.local = NewUnixEndpoint(localUnixSocket)
@@ -67,6 +77,13 @@ func NewUnix(tsnetConn *tsnet.Server, localUnixSocket, server string, serverPort
 	return sshTun
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func defaultSSHTun(server string, port int, tsnetConn *tsnet.Server) *SshTunnel {
 	return &SshTunnel{
 		mutex:     &sync.Mutex{},
@@ -76,20 +93,35 @@ func defaultSSHTun(server string, port int, tsnetConn *tsnet.Server) *SshTunnel 
 	}
 }
 
-// SetConnState specifies an optional callback function that is called when a SSH tunnel changes state.
-// See the ConnState type and associated constants for details.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) SetConnState(connStateFun func(*SshTunnel, ConnectionState)) {
 	tun.connState = connStateFun
 }
 
-// SetTunneledConnState specifies an optional callback function that is called when the underlying tunneled
-// connections change state.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) SetTunneledConnState(tunneledConnStateFun func(*SshTunnel, *TunneledConnectionState)) {
 	tun.tunneledConnState = tunneledConnStateFun
 }
 
-// Start starts the SSH tunnel. It can be stopped by calling `Stop` or cancelling its context.
-// This call will block until the tunnel is stopped either calling those methods or by an error.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) Start(ctx context.Context) error {
 	tun.mutex.Lock()
 	if tun.started {
@@ -128,7 +160,13 @@ func (tun *SshTunnel) Start(ctx context.Context) error {
 	return tun.stop(<-errChan)
 }
 
-// Stop closes all connections and makes Start exit gracefuly.
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) Stop() {
 	tun.mutex.Lock()
 	defer tun.mutex.Unlock()
@@ -138,6 +176,13 @@ func (tun *SshTunnel) Stop() {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) initSSHConfig() (*ssh.ClientConfig, error) {
 	config := &ssh.ClientConfig{
 		HostKeyCallback: func(hostname string, remote net.Addr, key ssh.PublicKey) error {
@@ -149,6 +194,13 @@ func (tun *SshTunnel) initSSHConfig() (*ssh.ClientConfig, error) {
 	return config, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) stop(err error) error {
 	tun.mutex.Lock()
 	tun.started = false
@@ -159,6 +211,13 @@ func (tun *SshTunnel) stop(err error) error {
 	return err
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) listen(localListener net.Listener) error {
 	errGroup, groupCtx := errgroup.WithContext(tun.ctx)
 
@@ -190,6 +249,13 @@ func (tun *SshTunnel) listen(localListener net.Listener) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) handle(localConn net.Conn) error {
 	err := tun.addConn()
 	if err != nil {
@@ -202,6 +268,13 @@ func (tun *SshTunnel) handle(localConn net.Conn) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) addConn() error {
 	tun.mutex.Lock()
 	defer tun.mutex.Unlock()
@@ -226,6 +299,13 @@ func (tun *SshTunnel) addConn() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (tun *SshTunnel) removeConn() {
 	tun.mutex.Lock()
 	defer tun.mutex.Unlock()

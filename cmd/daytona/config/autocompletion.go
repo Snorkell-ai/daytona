@@ -12,6 +12,13 @@ const completionScriptNameRoot = "daytona.completion_script."
 
 var shellNames = []string{"bash", "zsh", "fish", "powershell"}
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func DeleteAutocompletionData() error {
 	for _, shellName := range shellNames {
 		err := removeAutocompletionDataForShell(shellName)
@@ -23,6 +30,13 @@ func DeleteAutocompletionData() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func removeAutocompletionDataForShell(shellName string) error {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -64,6 +78,13 @@ func removeAutocompletionDataForShell(shellName string) error {
 	return os.Remove(completionScriptPath)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func removeLineFromFile(filePath string, lineText string) error {
 	_, err := os.Stat(filePath)
 	if os.IsNotExist(err) {

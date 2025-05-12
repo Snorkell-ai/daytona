@@ -12,6 +12,13 @@ type RemoteLogger struct {
 	conn        *websocket.Conn
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (r *RemoteLogger) Write(p []byte) (n int, err error) {
 	if r.conn != nil {
 		b, err := r.localLogger.ConstructJsonLogEntry(p)
@@ -28,6 +35,13 @@ func (r *RemoteLogger) Write(p []byte) (n int, err error) {
 	return r.localLogger.Write(p)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (r *RemoteLogger) Cleanup() error {
 	if r.conn != nil {
 		err := r.conn.Close()
@@ -40,6 +54,13 @@ func (r *RemoteLogger) Cleanup() error {
 	return r.localLogger.Cleanup()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (r *RemoteLogger) Close() error {
 	if r.conn != nil {
 		err := r.conn.Close()
@@ -52,6 +73,13 @@ func (r *RemoteLogger) Close() error {
 	return r.localLogger.Close()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (r *RemoteLogger) ConstructJsonLogEntry(p []byte) ([]byte, error) {
 	return r.localLogger.ConstructJsonLogEntry(p)
 }

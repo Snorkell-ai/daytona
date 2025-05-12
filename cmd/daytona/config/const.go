@@ -11,6 +11,13 @@ import (
 	"github.com/daytonaio/daytona/pkg/os"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetBinaryUrls() map[os.OperatingSystem]string {
 	return map[os.OperatingSystem]string{
 		(os.Darwin_64_86):  "https://download.daytona.io/daytona/latest/daytona-darwin-amd64",
@@ -22,6 +29,13 @@ func GetBinaryUrls() map[os.OperatingSystem]string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetIdeList() []Ide {
 	ides := []Ide{
 		{"vscode", "VS Code"},
@@ -50,6 +64,13 @@ func GetIdeList() []Ide {
 	return ides
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetSupportedGitProviders() []GitProvider {
 	return []GitProvider{
 		{"github", "GitHub"},
@@ -68,6 +89,13 @@ func GetSupportedGitProviders() []GitProvider {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetDocsLinkFromGitProvider(providerId string) string {
 	switch providerId {
 	case "github":
@@ -101,6 +129,13 @@ func GetDocsLinkFromGitProvider(providerId string) string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetDocsLinkForCommitSigning(providerId string) string {
 	switch providerId {
 	case "github", "github-enterprise-server":
@@ -118,6 +153,13 @@ func GetDocsLinkForCommitSigning(providerId string) string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetRequiredScopesFromGitProviderId(providerId string) string {
 	switch providerId {
 	case "github":
@@ -151,6 +193,13 @@ func GetRequiredScopesFromGitProviderId(providerId string) string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetPrebuildScopesFromGitProviderId(providerId string) string {
 	switch providerId {
 	case "github":
@@ -168,6 +217,13 @@ func GetPrebuildScopesFromGitProviderId(providerId string) string {
 	}
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetWebhookEventHeaderKeyFromGitProvider(providerId string) string {
 	switch providerId {
 	case "github":

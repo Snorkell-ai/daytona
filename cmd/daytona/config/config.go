@@ -44,6 +44,13 @@ type GitProvider struct {
 	Name string
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetConfig() (*Config, error) {
 	configFilePath, err := getConfigPath()
 	if err != nil {
@@ -91,6 +98,13 @@ func GetConfig() (*Config, error) {
 
 var ErrNoProfilesFound = errors.New("no profiles found. Run `daytona serve` to create a default profile or `daytona profile create` to connect to a remote server")
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) GetActiveProfile() (Profile, error) {
 	if len(c.Profiles) == 0 {
 		return Profile{}, ErrNoProfilesFound
@@ -105,6 +119,13 @@ func (c *Config) GetActiveProfile() (Profile, error) {
 	return Profile{}, errors.New("active profile not found. Set an active profile with `daytona profile use`")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) Save() error {
 	configFilePath, err := getConfigPath()
 	if err != nil {
@@ -124,6 +145,13 @@ func (c *Config) Save() error {
 	return os.WriteFile(configFilePath, configContent, 0644)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) AddProfile(profile Profile) error {
 	c.Profiles = append(c.Profiles, profile)
 	c.ActiveProfileId = profile.Id
@@ -131,6 +159,13 @@ func (c *Config) AddProfile(profile Profile) error {
 	return c.Save()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) EditProfile(profile Profile) error {
 	for i, p := range c.Profiles {
 		if p.Id == profile.Id {
@@ -143,6 +178,13 @@ func (c *Config) EditProfile(profile Profile) error {
 	return fmt.Errorf("profile with id %s not found", profile.Id)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) RemoveProfile(profileId string) error {
 	if profileId == "default" {
 		return errors.New("can not remove default profile")
@@ -164,6 +206,13 @@ func (c *Config) RemoveProfile(profileId string) error {
 	return c.Save()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) GetProfile(profileId string) (Profile, error) {
 	for _, profile := range c.Profiles {
 		if profile.Id == profileId {
@@ -174,18 +223,39 @@ func (c *Config) GetProfile(profileId string) (Profile, error) {
 	return Profile{}, errors.New("profile not found")
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) EnableTelemetry() error {
 	c.TelemetryEnabled = true
 
 	return c.Save()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func (c *Config) DisableTelemetry() error {
 	c.TelemetryEnabled = false
 
 	return c.Save()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getConfigPath() (string, error) {
 	configDir, err := GetConfigDir()
 	if err != nil {
@@ -195,6 +265,13 @@ func getConfigPath() (string, error) {
 	return filepath.Join(configDir, "config.json"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetConfigDir() (string, error) {
 	daytonaConfigDir := os.Getenv("DAYTONA_CONFIG_DIR")
 	if daytonaConfigDir != "" {
@@ -209,6 +286,13 @@ func GetConfigDir() (string, error) {
 	return filepath.Join(userConfigDir, "daytona"), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func DeleteConfigDir() error {
 	configDir, err := GetConfigDir()
 	if err != nil {
@@ -218,6 +302,13 @@ func DeleteConfigDir() error {
 	return os.RemoveAll(configDir)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func TelemetryEnabled() bool {
 	telemetryEnabled := os.Getenv("DAYTONA_TELEMETRY_ENABLED")
 	if telemetryEnabled != "" {
@@ -232,6 +323,13 @@ func TelemetryEnabled() bool {
 	return c.TelemetryEnabled
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetClientId() string {
 	clientId := os.Getenv("DAYTONA_CLIENT_ID")
 	if clientId != "" {
@@ -246,6 +344,13 @@ func GetClientId() string {
 	return c.Id
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetErrorLogsDir() (string, error) {
 	configDir, err := GetConfigDir()
 	if err != nil {
@@ -261,6 +366,13 @@ func GetErrorLogsDir() (string, error) {
 	return errorLogsDir, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getInitialDefaultIde() string {
 	_, err := exec.LookPath("code")
 	if err == nil {

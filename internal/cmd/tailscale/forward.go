@@ -15,6 +15,13 @@ import (
 	"tailscale.com/tsnet"
 )
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ForwardPort(workspaceId string, targetPort uint16, profile config.Profile) (*uint16, chan error) {
 	hostPort := targetPort
 	errChan := make(chan error)
@@ -56,6 +63,13 @@ func ForwardPort(workspaceId string, targetPort uint16, profile config.Profile) 
 	return &hostPort, errChan
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func handlePortConnection(conn net.Conn, tsConn *tsnet.Server, targetUrl string, errChan chan error) {
 	dialConn, err := tsConn.Dial(context.Background(), "tcp", targetUrl)
 	if err != nil {

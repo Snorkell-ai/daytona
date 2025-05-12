@@ -18,6 +18,13 @@ import (
 
 var SshHomeDir string
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ensureSshFilesLinked() error {
 	// Make sure ~/.ssh/config file exists if not create it
 	sshDir := filepath.Join(SshHomeDir, ".ssh")
@@ -79,6 +86,13 @@ func ensureSshFilesLinked() error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func UnlinkSshFiles() error {
 	sshDirPath := filepath.Join(SshHomeDir, ".ssh")
 	sshConfigPath := filepath.Join(sshDirPath, "config")
@@ -114,6 +128,13 @@ func UnlinkSshFiles() error {
 
 // Add ssh entry
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func generateSshConfigEntry(profileId, resourceId, knownHostsPath string, gpgForward bool) (string, error) {
 	daytonaPath, err := os.Executable()
 	if err != nil {
@@ -153,6 +174,13 @@ func generateSshConfigEntry(profileId, resourceId, knownHostsPath string, gpgFor
 	return config, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func EnsureSshConfigEntryAdded(profileId, resourceId string, gpgKey *string) error {
 	err := ensureSshFilesLinked()
 	if err != nil {
@@ -211,6 +239,13 @@ func EnsureSshConfigEntryAdded(profileId, resourceId string, gpgKey *string) err
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func regenerateProxyCommand(existingContent, profileId, resourceId string) (string, error) {
 	daytonaPath, err := os.Executable()
 	if err != nil {
@@ -230,6 +265,13 @@ func regenerateProxyCommand(existingContent, profileId, resourceId string) (stri
 	return updatedContent, nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getKnownHostsFile() string {
 	if runtime.GOOS == "windows" {
 		return "NUL"
@@ -237,6 +279,13 @@ func getKnownHostsFile() string {
 	return "/dev/null"
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func appendSshConfigEntry(configPath, profileId, resourceId, knownHostsFile string, gpgForward bool, existingContent string) (string, error) {
 	data, err := generateSshConfigEntry(profileId, resourceId, knownHostsFile, gpgForward)
 	if err != nil {
@@ -267,6 +316,13 @@ func appendSshConfigEntry(configPath, profileId, resourceId, knownHostsFile stri
 	return updatedContent, err
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getLocalGPGSocket() (string, error) {
 	// Check if gpg is installed
 	if _, err := exec.LookPath("gpg"); err != nil {
@@ -282,6 +338,13 @@ func getLocalGPGSocket() (string, error) {
 	return strings.TrimSpace(string(output)), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func getRemoteGPGSocket(resourceHostname string) (string, error) {
 	cmd := exec.Command("ssh", resourceHostname, "gpgconf --list-dir agent-socket")
 	output, err := cmd.Output()
@@ -291,6 +354,13 @@ func getRemoteGPGSocket(resourceHostname string) (string, error) {
 	return strings.TrimSpace(string(output)), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ExportGPGKey(keyID, resourceHostname string) error {
 	exportCmd := exec.Command("gpg", "--export", keyID)
 	var output bytes.Buffer
@@ -306,6 +376,13 @@ func ExportGPGKey(keyID, resourceHostname string) error {
 	return importCmd.Run()
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func ReadSshConfig(configPath string) (string, error) {
 	content, err := os.ReadFile(configPath)
 	if err != nil && !os.IsNotExist(err) {
@@ -314,6 +391,13 @@ func ReadSshConfig(configPath string) (string, error) {
 	return string(content), nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func writeSshConfig(configPath, newContent string) error {
 	file, err := os.Create(configPath)
 	if err != nil {
@@ -328,7 +412,13 @@ func writeSshConfig(configPath, newContent string) error {
 	return nil
 }
 
-// RemoveSshEntries removes all SSH entries for a given profileId and resourceId
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func RemoveSshEntries(profileId, resourceId string) error {
 	sshDir := filepath.Join(SshHomeDir, ".ssh")
 	configPath := filepath.Join(sshDir, "daytona_config")
@@ -354,6 +444,13 @@ func RemoveSshEntries(profileId, resourceId string) error {
 	return writeSshConfig(configPath, newContent)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func UpdateSshEntry(profileId, resourceId, updatedContent string) error {
 	sshDir := filepath.Join(SshHomeDir, ".ssh")
 	configPath := filepath.Join(sshDir, "daytona_config")
@@ -379,10 +476,24 @@ func UpdateSshEntry(profileId, resourceId, updatedContent string) error {
 	return nil
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetHostname(profileId, resourceId string) string {
 	return fmt.Sprintf("%s-%s", profileId, resourceId)
 }
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func init() {
 	if runtime.GOOS == "windows" {
 		SshHomeDir = os.Getenv("USERPROFILE")

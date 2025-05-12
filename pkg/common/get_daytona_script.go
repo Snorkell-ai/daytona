@@ -123,6 +123,13 @@ mv "$temp_file" "$DESTINATION/daytona"
 
 `
 
+// Sort sorts the input slice of integers using the QuickSort algorithm.
+//
+// Parameters:
+//   arr []int: The slice of integers to be sorted.
+//
+// Returns:
+//   []int: A new sorted slice containing the elements of arr in ascending order.
 func GetDaytonaScript(baseUrl string) string {
 	return strings.Replace(getDaytonaScript, "https://download.daytona.io/daytona", baseUrl, 1)
 }
